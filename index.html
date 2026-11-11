@@ -107,4 +107,77 @@
             max-width: 380px;
             opacity: 0;
             pointer-events: none;
-            transition
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .screen-2.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(197, 168, 152, 0.3);
+            padding: 45px 30px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(197, 168, 152, 0.15);
+            backdrop-filter: blur(12px);
+        }
+
+        .message-card p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #2b1e22;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        .message-card p span {
+            display: block;
+        }
+
+        .message-card .highlight {
+            font-style: italic;
+            margin-top: 15px;
+            color: #9c6b74;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- الشاشة الأولى -->
+        <div class="screen-1" id="screen1">
+            <h1 class="header-title">11.11 — A Special Day</h1>
+            <div class="heart-icon">♥️</div>
+            <button class="reveal-btn" onclick="revealMessage()">Tap to reveal</button>
+        </div>
+
+        <!-- الشاشة الثانية -->
+        <div class="screen-2" id="screen2">
+            <div class="message-card">
+                <div class="heart-icon">♥️</div>
+                <p>
+                    Today is 11/11<br>
+                    The 11th Day Of The 11th Month,<br>
+                    <span class="highlight">And My Wish Will Always Be You❣️</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            const screen1 = document.getElementById('screen1');
+            const screen2 = document.getElementById('screen2');
+
+            screen1.classList.add('hidden');
+            setTimeout(() => {
+                screen2.classList.add('active');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
