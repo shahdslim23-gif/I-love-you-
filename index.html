@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You ♡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, rgba(245, 235, 230, 0.6) 0%, rgba(255, 255, 255, 1) 80%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 420px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Screen 1 */
+        .screen-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .screen-1.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .header-title {
+            font-size: 1.6rem;
+            color: #2b1e22;
+            font-weight: 400;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .heart-icon {
+            font-size: 1.2rem;
+            color: #C5A898;
+            margin-bottom: 30px;
+            display: inline-block;
+            animation: softPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .reveal-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(197, 168, 152, 0.4);
+            color: #2b1e22;
+            padding: 14px 36px;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(197, 168, 152, 0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .reveal-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Screen 2 */
+        .screen-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 90%;
+            max-width: 380px;
+            opacity: 0;
+            pointer-events: none;
+            transition
